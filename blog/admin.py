@@ -15,5 +15,5 @@ class PostAdmin(admin.ModelAdmin):
         return super().get_queryset(request).prefetch_related('tags')
 
     def tag_list(self, obj):
-        return ', '.join(o.name for on in obj.tags.all())
+        return ', '.join(o.name for o in obj.tags.all())
 

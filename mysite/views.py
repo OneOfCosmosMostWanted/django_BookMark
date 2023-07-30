@@ -22,10 +22,10 @@ class OwnerOnlyMixin(AccessMixin):
     raise_exception = True
     permission_denied_message = "Owner only can update/delete the object"
 
-    def dispatch(self, reuqest, *args, **kwargs):
-        obj = self.get_obejct()
+    def dispatch(self, request, *args, **kwargs):
+        obj = self.get_object()
         if request.user != obj.owner:
-            return self.handler_no_permission()
+            return self.handle_no_permission()
         return super().dispatch(request, *args, **kwargs)
 
 
